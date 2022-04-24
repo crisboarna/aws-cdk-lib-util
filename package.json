@@ -1,0 +1,41 @@
+{
+  "name": "aws-cdk-lib-util",
+  "version": "1.0.0",
+  "description": "Library providing utility functions for AWS CDK v2",
+  "author": "Cristian Boarna <contact@crisboarna.com>",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "workspaces": ["packages/*"],
+  "homepage": "https://github.com/crisboarna/aws-cdk-lib-util",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crisboarna/aws-cdk-lib-util.git"
+  },
+  "bugs": {
+    "url": "https://github.com/crisboarna/aws-cdk-lib-util/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lib:lint": "yarn workspace aws-cdk-lib-util lint",
+    "lib:test": "yarn workspace aws-cdk-lib-util test",
+    "lib:build": "yarn workspace aws-cdk-lib-util build",
+    "docs:start": "yarn workspace docs start",
+    "docs:build": "yarn workspace docs build",
+    "docs:serve": "yarn workspace docs serve",
+    "docs:deploy": "yarn workspace docs deploy"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1"
+  }
+}

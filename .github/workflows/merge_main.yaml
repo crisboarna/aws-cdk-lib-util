@@ -1,0 +1,63 @@
+name: CI/CD
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.ref != 'refs/head/main/' || github.run_number }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+
+jobs:
+  verify:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 5
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v3
+
+      - name: 🧰 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: 💽 Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: 📦 Install Dependencies
+        run: yarn install
+
+      - name: ✨ Linting
+        run: yarn lib:lint
+
+      - name: 🧪 Tests
+        run: yarn lib:test
+
+      - name: 📊 Code Coverage
+        uses: codecov/codecov-action@v2
+        with:
+          directory: ./packages/aws-cdk-lib-util/coverage
+          flags: unittests
+          fail_ci_if_error: true
+          verbose: true
+
+      - name: 🏗️ Library Build
+        run: yarn lib:build
+
+      - name: 🚀 Library Release
+        run: cd packages/aws-cdk-lib-util && yarn release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🏗️ Documentation Build
+        run: yarn docs:build
+
+      - name: 📓 Documentation Release
+        run: yarn docs:deploy
