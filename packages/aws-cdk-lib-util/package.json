@@ -32,7 +32,7 @@
   "scripts": {
     "lint": "eslint ./src/** --ext .ts --max-warnings 0",
     "test": "jest --coverage",
-    "build": "tsc",
+    "build": "tsc && cd ../../ && cp README.md LICENSE.md CONTRIBUTING.md packages/aws-cdk-lib-util",
     "release": "semantic-release"
   },
   "devDependencies": {

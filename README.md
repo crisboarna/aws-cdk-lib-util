@@ -10,7 +10,7 @@
 <a href="https://codecov.io/gh/crisboarna/aws-cdk-lib-util">
   <img src="https://img.shields.io/codecov/c/github/crisboarna/aws-cdk-lib-util.svg">
 </a>
-<a href="https://www.npmjs.com/package/fb-messenger-bot-api">
+<a href="https://www.npmjs.com/package/aws-cdk-lib-util">
   <img src="https://img.shields.io/npm/v/aws-cdk-lib-util.svg">
 </a>
 <a href="http://opensource.org/licenses/MIT">
