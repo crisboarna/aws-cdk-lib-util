@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.1.1...v1.1.2) (2022-04-26)
+
+
+### Bug Fixes
+
+* **lambda:** exported lambda props directly ([1a33ec4](https://github.com/crisboarna/aws-cdk-lib-util/commit/1a33ec4f6256ac50b3d45c5646561f064f8d478e))
+
 ## [1.1.1](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.1.0...v1.1.1) (2022-04-26)
 
 
