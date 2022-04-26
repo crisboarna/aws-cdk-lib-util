@@ -32,4 +32,16 @@ describe('CDKDirectoryUtil', () => {
     //then
     expect(existsSync(filePath)).toEqual(true);
   });
+
+  it('getStackName', () => {
+    //given
+    const dirName = '/tmp/cdk/test';
+    const fileName = `${dirName}/YourStack.ts`;
+
+    //when
+    const res = CDKDirectoryUtil.getStackName(dirName, fileName);
+
+    //then
+    expect(res).toEqual('YourStack');
+  });
 });

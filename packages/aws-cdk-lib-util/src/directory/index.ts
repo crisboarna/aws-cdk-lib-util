@@ -61,4 +61,22 @@ export class CDKDirectoryUtil {
 
     fs.closeSync(fs.openSync(`${pathSegment}/${fileName}`, 'a'));
   };
+
+  /**
+   * Facilitates the naming of the CDK stack based on the file containing the app.
+   * ```typescript title="YourStack.ts"
+   * import { App } from 'aws-cdk-lib';
+   * import { CDKDirectoryUtil } from 'aws-cdk-lib-util';
+   *
+   * const app = new App();
+   *
+   * const stack1 = new YourStackImpl(app,CDKDirectoryUtil.getStackName(__dirname, __filename),{...});
+   * ...
+   * ```
+   * Stack will be named YourStack.
+   * @param directoryName
+   * @param fileName
+   */
+  public static getStackName = (directoryName: string, fileName: string) =>
+    fileName.slice(directoryName.length + 1, -3);
 }
