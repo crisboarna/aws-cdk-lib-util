@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "importHelpers": false,
     "target": "es2017",
-    "module": "esnext",
+    "module": "commonjs",
     "lib": ["es2017"],
     "baseUrl": ".",
     "outDir": "./dist"
