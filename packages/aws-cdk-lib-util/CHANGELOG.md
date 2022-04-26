@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.1.0...v1.1.1) (2022-04-26)
+
+
+### Bug Fixes
+
+* **module:** increased supported versions ([ba50a35](https://github.com/crisboarna/aws-cdk-lib-util/commit/ba50a35884318925e3bc4d1f078dda0b2f99e447))
+
 # [1.1.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.0.1...v1.1.0) (2022-04-26)
 
 
