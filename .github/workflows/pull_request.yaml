@@ -3,7 +3,7 @@ name: pull_request
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.ref != 'refs/head/main/' || github.run_number }}
