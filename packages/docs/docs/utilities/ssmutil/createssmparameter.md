@@ -10,6 +10,7 @@ The `SSM` parameter name must adhere to the naming convention specified in [Para
 ## Example usage
 ```typescript title="YourStack.ts"
 import { SSMUtil } from 'aws-cdk-lib-util';
+import { ParameterTier } from 'aws-cdk-lib/aws-ssm';
 ...
 
 export class YourStack extends Stack {
@@ -33,6 +34,7 @@ export class YourStack extends Stack {
       stackEnv,
       paramName: paramName,
       value: apiSG.securityGroupId,
+      tier: ParameterTier.ADVANCED,
     });
   ...
   }
