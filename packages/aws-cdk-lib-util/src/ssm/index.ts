@@ -15,6 +15,7 @@ export interface SSMParamCreateProps {
   readonly stackEnv: string;
   readonly value: string;
   readonly uniqueKey?: string;
+  readonly tier?: ParameterTier;
 }
 
 /***
@@ -26,6 +27,7 @@ export interface SSMParamListCreateProps {
   readonly projectName: string;
   readonly stackEnv: string;
   readonly value: string[];
+  readonly tier?: ParameterTier;
 }
 
 /***
@@ -83,6 +85,7 @@ export class SSMUtil {
    * @param paramName
    * @param value
    * @param uniqueKey
+   * @param tier
    */
   public static createSSMParameter = ({
     scope,
@@ -91,6 +94,7 @@ export class SSMUtil {
     paramName,
     value,
     uniqueKey,
+    tier,
   }: SSMParamCreateProps) =>
     new StringParameter(
       scope,
@@ -101,7 +105,7 @@ export class SSMUtil {
           ? `${paramName}${stackEnv.toLowerCase()}`
           : `/${projectName.toLowerCase()}/${paramName}${stackEnv.toLowerCase()}`,
         stringValue: value,
-        tier: ParameterTier.STANDARD,
+        tier: tier ?? ParameterTier.STANDARD,
       }
     );
 
@@ -138,6 +142,7 @@ export class SSMUtil {
    * @param stackEnv
    * @param paramName
    * @param value
+   * @param tier
    */
   public static createSSMParameterList = ({
     scope,
@@ -145,6 +150,7 @@ export class SSMUtil {
     stackEnv,
     paramName,
     value,
+    tier,
   }: SSMParamListCreateProps) =>
     new StringListParameter(scope, `${projectName}-${paramName}`, {
       description: `${projectName}`,
@@ -152,7 +158,7 @@ export class SSMUtil {
         ? `${paramName}${stackEnv.toLowerCase()}`
         : `/${projectName.toLowerCase()}/${paramName}${stackEnv.toLowerCase()}`,
       stringListValue: value,
-      tier: ParameterTier.STANDARD,
+      tier: tier ?? ParameterTier.STANDARD,
     });
 
   /**

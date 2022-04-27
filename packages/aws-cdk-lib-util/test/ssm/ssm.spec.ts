@@ -1,6 +1,7 @@
 import { App, Stack } from 'aws-cdk-lib';
 import { SSMUtil } from '../../src';
 import { Template } from 'aws-cdk-lib/assertions';
+import { ParameterTier } from 'aws-cdk-lib/aws-ssm';
 
 describe('SSMUtil', () => {
   // given
@@ -27,6 +28,7 @@ describe('SSMUtil', () => {
         stackEnv,
         paramName: paramNameProjectSame,
         value: paramValue,
+        tier: ParameterTier.ADVANCED,
       });
       const template = Template.fromStack(stack);
 
@@ -36,7 +38,7 @@ describe('SSMUtil', () => {
         Value: paramValue,
         Description: projectName,
         Name: `/${projectName.toLowerCase()}/${paramNameProjectSame}${stackEnv.toLowerCase()}`,
-        Tier: 'Standard',
+        Tier: 'Advanced',
       });
     });
 
@@ -104,6 +106,7 @@ describe('SSMUtil', () => {
         stackEnv,
         paramName: paramNameProjectSame,
         value: paramValue,
+        tier: ParameterTier.ADVANCED,
       });
       const template = Template.fromStack(stack);
 
@@ -113,7 +116,7 @@ describe('SSMUtil', () => {
         Value: paramValue[0],
         Description: projectName,
         Name: `/${projectName.toLowerCase()}/${paramNameProjectSame}${stackEnv.toLowerCase()}`,
-        Tier: 'Standard',
+        Tier: 'Advanced',
       });
     });
 
