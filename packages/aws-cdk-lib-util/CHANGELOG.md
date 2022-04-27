@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.1.2...v1.2.0) (2022-04-27)
+
+
+### Features
+
+* **ssm:** added ssmutil tier option ([d65e8c7](https://github.com/crisboarna/aws-cdk-lib-util/commit/d65e8c797c8d70b97741601d9bc86952f34beeda))
+
 ## [1.1.2](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.1.1...v1.1.2) (2022-04-26)
 
 
