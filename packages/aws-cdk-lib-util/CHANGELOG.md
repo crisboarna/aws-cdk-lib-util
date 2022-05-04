@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.2.0...v1.3.0) (2022-05-04)
+
+
+### Features
+
+* **context:** added context utility ([0d6af7c](https://github.com/crisboarna/aws-cdk-lib-util/commit/0d6af7c9c7a312d35951a9ccbed3a2202845bd22))
+
 # [1.2.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.1.2...v1.2.0) (2022-04-27)
 
 
