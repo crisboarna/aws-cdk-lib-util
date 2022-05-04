@@ -1,4 +1,5 @@
 export * from './custom';
+export * from './context';
 export * from './directory';
 export * from './interfaces';
 export * from './lambda';
