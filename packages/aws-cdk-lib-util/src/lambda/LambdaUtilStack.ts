@@ -17,8 +17,8 @@ import {
   Tracing,
   Alias,
   IFunction,
-  IAlias,
-} from 'aws-cdk-lib/aws-lambda';
+  IAlias, IVersion
+} from "aws-cdk-lib/aws-lambda";
 import { Queue, QueueEncryption } from 'aws-cdk-lib/aws-sqs';
 import { LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { Alarm, TreatMissingData } from 'aws-cdk-lib/aws-cloudwatch';
@@ -44,6 +44,7 @@ export interface ILambdaActionProps {
   stackEnv: string;
   lambda: IFunction;
   lambdaAlias: IAlias;
+  lambdaVersion: IVersion,
   lambdaName: string;
   lambdaSG: SecurityGroup;
   lambdaRole: Role;
@@ -419,6 +420,7 @@ export class LambdaUtilStack extends Stack {
         stackEnv,
         lambda: lambdaFunction,
         lambdaAlias: alias,
+        lambdaVersion: lambdaFunction.currentVersion,
         lambdaName: name,
         lambdaRole: lambdaRole,
         lambdaSG: lambdaSG,
