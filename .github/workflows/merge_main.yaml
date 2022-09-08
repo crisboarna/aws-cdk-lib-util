@@ -24,7 +24,7 @@ jobs:
           node-version: '16'
 
       - name: 💽 Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             **/node_modules
@@ -40,7 +40,7 @@ jobs:
         run: yarn lib:test
 
       - name: 📊 Code Coverage
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           directory: ./packages/aws-cdk-lib-util/coverage
           flags: unittests
