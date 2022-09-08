@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.3.0...v1.4.0) (2022-09-08)
+
+
+### Features
+
+* **lambda:** exposed lambda version to extraActions ([3e786a5](https://github.com/crisboarna/aws-cdk-lib-util/commit/3e786a54f9de1a704c8728624d4aaabc32f0dbfd))
+
 # [1.3.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.2.0...v1.3.0) (2022-05-04)
 
 
