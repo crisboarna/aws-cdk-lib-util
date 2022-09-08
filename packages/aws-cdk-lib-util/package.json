@@ -37,7 +37,7 @@
     "release": "semantic-release"
   },
   "devDependencies": {
-    "@nrwl/jest": "13.10.2",
+    "@nrwl/jest": "14.6.5",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.4",
