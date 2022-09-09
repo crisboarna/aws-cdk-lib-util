@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.4.0...v1.5.0) (2022-09-09)
+
+
+### Features
+
+* **lambda:** added default env generation as a configurable property ([68be204](https://github.com/crisboarna/aws-cdk-lib-util/commit/68be2043710f4844dac55b31ea8ac9cc3c36f0fa))
+
 # [1.4.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.3.0...v1.4.0) (2022-09-08)
 
 
