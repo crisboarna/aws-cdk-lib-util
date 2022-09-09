@@ -63,6 +63,7 @@ export interface LambdaProps {
     scope: Construct,
     stackEnv: string
   ) => Record<string, string>;
+  readonly environmentGenerationDefaults?: boolean;
   readonly isInVpc: boolean;
   readonly isProvisioned?: boolean;
   readonly layers?: {
@@ -157,6 +158,7 @@ export class LambdaUtilStack extends Stack {
       alarmTopicParam,
       deploymentConfig,
       environmentGeneration,
+      environmentGenerationDefaults,
       extraActions,
       handler,
       isInVpc,
@@ -299,7 +301,7 @@ export class LambdaUtilStack extends Stack {
       memorySize: memorySize ?? 256,
       timeout: Duration.seconds(timeout ?? 25),
       tracing: Tracing.ACTIVE,
-      environment: {
+      environment: environmentGenerationDefaults === undefined || environmentGenerationDefaults ? {
         PROJECT_NAME: projectName,
         CREATION_DATE: new Date().toISOString(),
         CLOUD_DEPLOYED: 'true',
@@ -307,7 +309,7 @@ export class LambdaUtilStack extends Stack {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         REGION: env!.region!,
         ...(environmentGeneration ? environmentGeneration(this, stackEnv) : {}),
-      },
+      } : undefined,
       currentVersionOptions: {
         removalPolicy: RemovalPolicy.RETAIN,
         retryAttempts: 1,
