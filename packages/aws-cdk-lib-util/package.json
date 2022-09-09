@@ -48,7 +48,7 @@
     "aws-cdk-lib": "^2.21.1",
     "constructs": "^10.0.123",
     "dotenv": "^16.0.0",
-    "eslint": "~8.12.0",
+    "eslint": "~8.23.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "jest": "27.2.3",
