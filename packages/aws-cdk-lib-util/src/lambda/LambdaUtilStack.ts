@@ -179,6 +179,8 @@ export class LambdaUtilStack extends Stack {
       vpcConfig,
     } = lambda;
 
+    const createDlq = generateDlq === undefined || generateDlq;
+
     let lambdaSG;
 
     let vpc: IVpc;
@@ -288,7 +290,7 @@ export class LambdaUtilStack extends Stack {
     });
 
     let deadLetterQueue;
-    if(generateDlq === undefined || generateDlq) {
+    if(createDlq) {
       deadLetterQueue = new Queue(this, `${lambda.name}-DLQ-${stackEnv}`, {
         queueName: `${lambda.name}-DLQ-${stackEnv}`,
         encryption: QueueEncryption.KMS_MANAGED,
@@ -297,7 +299,7 @@ export class LambdaUtilStack extends Stack {
 
     let lambdaProps: FunctionProps = {
       functionName: `${name}-${stackEnv}`,
-      deadLetterQueue: generateDlq === undefined || generateDlq ? deadLetterQueue : undefined,
+      deadLetterQueue: createDlq ? deadLetterQueue : undefined,
       deadLetterQueueEnabled: true,
       description: `Lambda containing ${name} API functionality`,
       code: new AssetCode(artifactPath),
@@ -342,16 +344,18 @@ export class LambdaUtilStack extends Stack {
       version: lambdaFunction.currentVersion,
     });
 
-    const dlqAlarm = new Alarm(this, `${lambda.name}-DLQ-Alarm-${stackEnv}`, {
-      alarmName: `${lambda.name}-${stackEnv}-DLQ`,
-      alarmDescription: `Alarm that monitors ${lambda.name} DLQ Depth`,
-      metric: deadLetterQueue.metricApproximateNumberOfMessagesVisible(),
-      threshold: 1,
-      evaluationPeriods: 1,
-      treatMissingData: TreatMissingData.NOT_BREACHING,
-    });
+    if(createDlq) {
+      const dlqAlarm = new Alarm(this, `${lambda.name}-DLQ-Alarm-${stackEnv}`, {
+        alarmName: `${lambda.name}-${stackEnv}-DLQ`,
+        alarmDescription: `Alarm that monitors ${lambda.name} DLQ Depth`,
+        metric: deadLetterQueue.metricApproximateNumberOfMessagesVisible(),
+        threshold: 1,
+        evaluationPeriods: 1,
+        treatMissingData: TreatMissingData.NOT_BREACHING,
+      });
 
-    dlqAlarm.addAlarmAction(new SnsAction(alarmTopic));
+      dlqAlarm.addAlarmAction(new SnsAction(alarmTopic));
+    }
 
     // const durationAlarm = new Alarm(
     //     this,
