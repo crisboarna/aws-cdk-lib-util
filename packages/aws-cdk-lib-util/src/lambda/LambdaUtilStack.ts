@@ -300,7 +300,7 @@ export class LambdaUtilStack extends Stack {
     let lambdaProps: FunctionProps = {
       functionName: `${name}-${stackEnv}`,
       deadLetterQueue: createDlq ? deadLetterQueue : undefined,
-      deadLetterQueueEnabled: true,
+      deadLetterQueueEnabled: createDlq,
       description: `Lambda containing ${name} API functionality`,
       code: new AssetCode(artifactPath),
       handler: handler ?? 'main.handler',
