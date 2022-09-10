@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.6.0...v1.6.1) (2022-09-10)
+
+
+### Bug Fixes
+
+* **lambda:** removed default dlq if none specified ([c8af294](https://github.com/crisboarna/aws-cdk-lib-util/commit/c8af2942f793abb2a60ce83b204cbf8fe8fb734f))
+
 # [1.6.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.5.0...v1.6.0) (2022-09-10)
 
 
