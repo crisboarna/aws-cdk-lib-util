@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.5.0...v1.6.0) (2022-09-10)
+
+
+### Features
+
+* **lambda:** made dlq configurable if created or not ([7842771](https://github.com/crisboarna/aws-cdk-lib-util/commit/7842771b897ef67059fd93ee0661b11170783052))
+
 # [1.5.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.4.0...v1.5.0) (2022-09-09)
 
 
