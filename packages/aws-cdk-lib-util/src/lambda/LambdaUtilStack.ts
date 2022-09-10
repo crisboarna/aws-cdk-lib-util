@@ -64,6 +64,7 @@ export interface LambdaProps {
     stackEnv: string
   ) => Record<string, string>;
   readonly environmentGenerationDefaults?: boolean;
+  readonly generateDlq?: boolean;
   readonly isInVpc: boolean;
   readonly isProvisioned?: boolean;
   readonly layers?: {
@@ -161,6 +162,7 @@ export class LambdaUtilStack extends Stack {
       environmentGenerationDefaults,
       extraActions,
       handler,
+      generateDlq,
       isInVpc,
       isProvisioned,
       layers,
@@ -285,14 +287,17 @@ export class LambdaUtilStack extends Stack {
       }
     });
 
-    const deadLetterQueue = new Queue(this, `${lambda.name}-DLQ-${stackEnv}`, {
-      queueName: `${lambda.name}-DLQ-${stackEnv}`,
-      encryption: QueueEncryption.KMS_MANAGED,
-    });
+    let deadLetterQueue;
+    if(generateDlq === undefined || generateDlq) {
+      deadLetterQueue = new Queue(this, `${lambda.name}-DLQ-${stackEnv}`, {
+        queueName: `${lambda.name}-DLQ-${stackEnv}`,
+        encryption: QueueEncryption.KMS_MANAGED,
+      });
+    }
 
     let lambdaProps: FunctionProps = {
       functionName: `${name}-${stackEnv}`,
-      deadLetterQueue,
+      deadLetterQueue: generateDlq === undefined || generateDlq ? deadLetterQueue : undefined,
       deadLetterQueueEnabled: true,
       description: `Lambda containing ${name} API functionality`,
       code: new AssetCode(artifactPath),
