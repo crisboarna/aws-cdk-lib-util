@@ -855,13 +855,6 @@ describe('LambdaUtilStack', () => {
         PolicyDocument: {
           Statement: [
             {
-              Action: 'sqs:SendMessage',
-              Effect: 'Allow',
-              Resource: {
-                'Fn::GetAtt': [Match.anyValue(), 'Arn'],
-              },
-            },
-            {
               Action: ['xray:PutTraceSegments', 'xray:PutTelemetryRecords'],
               Effect: 'Allow',
               Resource: '*',
