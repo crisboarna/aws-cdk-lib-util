@@ -1,17 +1,13 @@
-module.exports = {
+import { getJestProjectsAsync } from '@nx/jest';
+
+/* eslint-disable */
+export default async  () => ({
+  projects: await getJestProjectsAsync(),
   displayName: 'aws-cdk-lib-util',
   preset: './jest.preset.js',
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.json',
-      diagnostics: {
-        ignoreCodes: ['TS151001'],
-      },
-    },
-  },
   testEnvironment: 'node',
   transform: {
-    '^.+\\.[tj]s$': 'ts-jest',
+    '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: 'coverage',
@@ -24,4 +20,4 @@ module.exports = {
       statements: 99.32,
     },
   },
-};
+});

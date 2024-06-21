@@ -17,7 +17,7 @@ import {
   Tracing,
   Alias,
   IFunction,
-  IAlias, IVersion
+  IAlias, IVersion, Architecture, ILayerVersion
 } from "aws-cdk-lib/aws-lambda";
 import { Queue, QueueEncryption } from 'aws-cdk-lib/aws-sqs';
 import { LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
@@ -29,7 +29,6 @@ import {
   LambdaDeploymentConfig,
 } from 'aws-cdk-lib/aws-codedeploy';
 import { Topic } from 'aws-cdk-lib/aws-sns';
-import { ILayerVersion } from 'aws-cdk-lib/aws-lambda/lib/layers';
 import { IBaseStackProps } from '../interfaces';
 import { SSMUtil } from '../ssm';
 import { SecurityGroupUtil } from '../sg';
@@ -57,6 +56,7 @@ export interface ILambdaActionProps {
  */
 export interface LambdaProps {
   readonly alarmTopicParam: string;
+  readonly architecture: Architecture;
   readonly artifactPath: string;
   readonly deploymentConfig?: ILambdaDeploymentConfig;
   readonly environmentGeneration?: (
@@ -155,6 +155,7 @@ export class LambdaUtilStack extends Stack {
     const { env, lambda, projectName, stackEnv } = props;
 
     const {
+      architecture,
       artifactPath,
       alarmTopicParam,
       deploymentConfig,
@@ -304,8 +305,9 @@ export class LambdaUtilStack extends Stack {
       description: `Lambda containing ${name} API functionality`,
       code: new AssetCode(artifactPath),
       handler: handler ?? 'main.handler',
-      runtime: runtime ?? Runtime.NODEJS_14_X,
-      memorySize: memorySize ?? 256,
+      runtime: runtime ?? Runtime.NODEJS_20_X,
+      memorySize: memorySize ?? 128,
+      architecture : architecture ?? Architecture.X86_64,
       timeout: Duration.seconds(timeout ?? 25),
       tracing: Tracing.ACTIVE,
       environment: environmentGenerationDefaults === undefined || environmentGenerationDefaults ? {

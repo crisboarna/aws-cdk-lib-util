@@ -1,8 +1,7 @@
 import { App, Duration } from 'aws-cdk-lib';
-import { CDKDirectoryUtil, LambdaUtilStack, SSMUtil } from '../../src';
+import { CDKDirectoryUtil, LambdaUtilStack, SSMUtil, LambdaProps } from '../../src';
 import { Match, Template } from 'aws-cdk-lib/assertions';
-import { LambdaProps } from '../../src/lambda/LambdaUtilStack';
-import { Runtime } from 'aws-cdk-lib/aws-lambda';
+import { Architecture, Runtime } from "aws-cdk-lib/aws-lambda";
 import { LambdaDeploymentConfig } from 'aws-cdk-lib/aws-codedeploy';
 
 describe('LambdaUtilStack', () => {
@@ -147,8 +146,8 @@ describe('LambdaUtilStack', () => {
       },
       FunctionName: `${name}-${stackEnv}`,
       Handler: 'main.handler',
-      MemorySize: 256,
-      Runtime: 'nodejs14.x',
+      MemorySize: 128,
+      Runtime: 'nodejs20.x',
       Timeout: 25,
       TracingConfig: {
         Mode: 'Active',
@@ -317,7 +316,7 @@ describe('LambdaUtilStack', () => {
           account: '1234567890123',
           region: 'us-east-1',
         },
-        lambda: { ...lambdaConfig, environmentGenerationDefaults: false },
+        lambda: { ...lambdaConfig, environmentGenerationDefaults: false, architecture: Architecture.X86_64 },
         projectName,
         stackEnv,
       });
@@ -394,9 +393,10 @@ describe('LambdaUtilStack', () => {
         Description: `Lambda containing ${name} API functionality`,
         FunctionName: `${name}-${stackEnv}`,
         Handler: 'main.handler',
-        MemorySize: 256,
-        Runtime: 'nodejs14.x',
+        MemorySize: 128,
+        Runtime: 'nodejs20.x',
         Timeout: 25,
+        Architectures: ['x86_64'],
         TracingConfig: {
           Mode: 'Active',
         },
@@ -640,8 +640,8 @@ describe('LambdaUtilStack', () => {
         Description: `Lambda containing ${name} API functionality`,
         FunctionName: `${name}-${stackEnv}`,
         Handler: 'main.handler',
-        MemorySize: 256,
-        Runtime: 'nodejs14.x',
+        MemorySize: 128,
+        Runtime: 'nodejs20.x',
         Timeout: 25,
         TracingConfig: {
           Mode: 'Active',
@@ -879,8 +879,8 @@ describe('LambdaUtilStack', () => {
         },
         FunctionName: `${name}-${stackEnv}`,
         Handler: 'main.handler',
-        MemorySize: 256,
-        Runtime: 'nodejs14.x',
+        MemorySize: 128,
+        Runtime: 'nodejs20.x',
         Timeout: 25,
         TracingConfig: {
           Mode: 'Active',
@@ -1112,8 +1112,8 @@ describe('LambdaUtilStack', () => {
         },
         FunctionName: `${name}-${stackEnv}`,
         Handler: 'main.handler',
-        MemorySize: 256,
-        Runtime: 'nodejs14.x',
+        MemorySize: 128,
+        Runtime: 'nodejs20.x',
         Timeout: 25,
         TracingConfig: {
           Mode: 'Active',
@@ -1301,6 +1301,7 @@ describe('LambdaUtilStack', () => {
         handler: 'test.handler',
         timeout: Duration.seconds(1).toSeconds(),
         runtime: Runtime.NODEJS_12_X,
+        architecture: Architecture.ARM_64,
         environmentGeneration: () => ({ TEST: '123' }),
         extraActions: ({ scope }) =>
           SSMUtil.createSSMParameter({
@@ -1427,6 +1428,7 @@ describe('LambdaUtilStack', () => {
       MemorySize: 128,
       Runtime: 'nodejs12.x',
       Timeout: 1,
+      Architectures: ['arm64'],
       TracingConfig: {
         Mode: 'Active',
       },
