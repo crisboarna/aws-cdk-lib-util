@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.6.1...v1.7.0) (2024-06-21)
+
+
+### Features
+
+* **lambda:** added architecture lambda prop ([cbad134](https://github.com/crisboarna/aws-cdk-lib-util/commit/cbad1346d652fb972a322f7391eefd41a2ee2923))
+
 ## [1.6.1](https://github.com/crisboarna/aws-cdk-lib-util/compare/v1.6.0...v1.6.1) (2022-09-10)
 
 
