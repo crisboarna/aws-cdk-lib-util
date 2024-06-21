@@ -11,9 +11,10 @@
     "target": "es2017",
     "module": "commonjs",
     "lib": ["es2017"],
+    "skipLibCheck": true,
     "baseUrl": ".",
     "outDir": "./dist"
   },
   "exclude": [
-    "node_modules", "tmp","test","dist"]
+    "node_modules", "tmp","test","dist", "jest.config.ts"]
 }

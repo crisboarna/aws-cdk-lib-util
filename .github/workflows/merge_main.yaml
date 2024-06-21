@@ -12,19 +12,19 @@ concurrency:
 
 jobs:
   verify:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🧰 Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: 💽 Cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             **/node_modules
@@ -40,7 +40,7 @@ jobs:
         run: yarn lib:test
 
       - name: 📊 Code Coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           directory: ./packages/aws-cdk-lib-util/coverage
           flags: unittests
@@ -60,7 +60,7 @@ jobs:
         run: yarn docs:build
 
       - name: 📓 Documentation Release
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./packages/docs/build

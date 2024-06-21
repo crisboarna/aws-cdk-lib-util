@@ -1,5 +1,5 @@
 {
-  "name": "aws-cdk-lib-util",
+  "name": "aws-cdk-lib-util-repo",
   "version": "1.0.0",
   "description": "Library providing utility functions for AWS CDK v2",
   "author": "Cristian Boarna <contact@crisboarna.com>",
@@ -7,7 +7,9 @@
   "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "homepage": "https://github.com/crisboarna/aws-cdk-lib-util",
   "repository": {
     "type": "git",
@@ -32,10 +34,10 @@
     "docs:deploy": "yarn workspace docs deploy"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^8.0.1",
-    "prettier": "^2.7.1"
+    "husky": "^9.0.11",
+    "prettier": "^2.8.8"
   }
 }

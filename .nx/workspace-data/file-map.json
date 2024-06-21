@@ -1,0 +1,451 @@
+{
+  "version": "6.0",
+  "nxVersion": "19.3.0",
+  "deps": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.0.11",
+    "prettier": "^2.8.8"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "aws-cdk-lib-util": [
+        {
+          "file": "packages/aws-cdk-lib-util/.gitignore",
+          "hash": "516946774132305766"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/CHANGELOG.md",
+          "hash": "17777184313987435879"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/jest.config.ts",
+          "hash": "4597905100450012872"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/jest.preset.js",
+          "hash": "9430166341120122740"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/package.json",
+          "hash": "801130087930222784",
+          "deps": [
+            "npm:aws-cdk-lib",
+            "npm:constructs",
+            "npm:@nx/jest",
+            "npm:@semantic-release/changelog",
+            "npm:@semantic-release/git",
+            "npm:@semantic-release/github",
+            "npm:@types/jest",
+            "npm:@types/node",
+            "npm:@typescript-eslint/eslint-plugin",
+            "npm:@typescript-eslint/parser",
+            "npm:dotenv",
+            "npm:eslint",
+            "npm:eslint-config-prettier",
+            "npm:eslint-plugin-import",
+            "npm:jest",
+            "npm:prettier@3.3.2",
+            "npm:semantic-release",
+            "npm:ts-jest",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/context/index.ts",
+          "hash": "15894289688024551729"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/custom/index.ts",
+          "hash": "6872690076988603631"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/directory/index.ts",
+          "hash": "4092017149567280594"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/index.ts",
+          "hash": "17848985270486674411"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/interfaces/index.ts",
+          "hash": "15756318709464025551"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/lambda/LambdaUtilStack.ts",
+          "hash": "16624844057948527677"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/lambda/index.ts",
+          "hash": "11559273319570243095"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/sg/index.ts",
+          "hash": "7494220253034754762"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/sm/index.ts",
+          "hash": "611256272270557605"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/ssm/index.ts",
+          "hash": "1225557399678020677"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/string/index.ts",
+          "hash": "3271372686574053406"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/src/vpc/index.ts",
+          "hash": "2647388029942348915"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/test/context/context.spec.ts",
+          "hash": "3538500540327355425"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/test/custom/custom.spec.ts",
+          "hash": "2780961436321089607"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/test/directory/directory.spec.ts",
+          "hash": "6929118647125928042"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/test/lambda/lambda.spec.ts",
+          "hash": "3306805026746438136"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/test/sg/sm.spec.ts",
+          "hash": "6302580191502938519"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/test/sm/sm.spec.ts",
+          "hash": "7618633179296971451"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/test/ssm/ssm.spec.ts",
+          "hash": "15094933278108188459"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/test/string/string.spec.ts",
+          "hash": "8761594757403132966"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/test/vpc/vpc.spec.ts",
+          "hash": "491277853080112054"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/tsconfig.json",
+          "hash": "7693306585584998560"
+        },
+        {
+          "file": "packages/aws-cdk-lib-util/tsconfig.spec.json",
+          "hash": "12315726689609024947"
+        }
+      ],
+      "docs": [
+        {
+          "file": "packages/docs/.gitignore",
+          "hash": "16756425970169599954"
+        },
+        {
+          "file": "packages/docs/babel.config.js",
+          "hash": "1308513646348002384"
+        },
+        {
+          "file": "packages/docs/docs/intro.md",
+          "hash": "14126165002138233856"
+        },
+        {
+          "file": "packages/docs/docs/stacks/_category_.json",
+          "hash": "17732427445293183273"
+        },
+        {
+          "file": "packages/docs/docs/stacks/lambda.md",
+          "hash": "12768693217348353566"
+        },
+        {
+          "file": "packages/docs/docs/utilities/_category_.json",
+          "hash": "8216384035767343855"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkcontextutil/_category_.json",
+          "hash": "4345964526448783451"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkcontextutil/hascontext.md",
+          "hash": "1436399438739182689"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkcustomresourceutil/_category_.json",
+          "hash": "13349994476619945077"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkcustomresourceutil/actionviacustomresource.md",
+          "hash": "17008500786752764256"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkcustomresourceutil/getssmparamviacustomresource.md",
+          "hash": "15501039577336743315"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkdirectoryutil/_category_.json",
+          "hash": "7663561528864857697"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkdirectoryutil/checkartifactdirectoryexists.md",
+          "hash": "13625894958493478487"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkdirectoryutil/checkartifactfileexists.md",
+          "hash": "16713261078562089539"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkdirectoryutil/getstackname.md",
+          "hash": "2517290344728914018"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkstringutil/_category_.json",
+          "hash": "9646351790166964941"
+        },
+        {
+          "file": "packages/docs/docs/utilities/cdkstringutil/capitalizeinputstring.md",
+          "hash": "10046060449116119987"
+        },
+        {
+          "file": "packages/docs/docs/utilities/secretmanagerutil/_category_.json",
+          "hash": "1993507114272590759"
+        },
+        {
+          "file": "packages/docs/docs/utilities/secretmanagerutil/createsecretmanagersecret.md",
+          "hash": "16495019470649916537"
+        },
+        {
+          "file": "packages/docs/docs/utilities/securitygrouputil/_category_.json",
+          "hash": "14857485929663940242"
+        },
+        {
+          "file": "packages/docs/docs/utilities/securitygrouputil/createsecuritygroup.md",
+          "hash": "11299096991132848943"
+        },
+        {
+          "file": "packages/docs/docs/utilities/securitygrouputil/getsecuritygroupfromid.md",
+          "hash": "13712673464061127204"
+        },
+        {
+          "file": "packages/docs/docs/utilities/ssmutil/_category_.json",
+          "hash": "2301332013042322011"
+        },
+        {
+          "file": "packages/docs/docs/utilities/ssmutil/createssmparameter.md",
+          "hash": "1032890424903906861"
+        },
+        {
+          "file": "packages/docs/docs/utilities/ssmutil/createssmparameterlist.md",
+          "hash": "12747455318374138647"
+        },
+        {
+          "file": "packages/docs/docs/utilities/ssmutil/getssmparameter.md",
+          "hash": "5209665183905264746"
+        },
+        {
+          "file": "packages/docs/docs/utilities/ssmutil/getssmparameterlist.md",
+          "hash": "4223830108249502764"
+        },
+        {
+          "file": "packages/docs/docs/utilities/ssmutil/getssmsecureparameter.md",
+          "hash": "13603730831001485005"
+        },
+        {
+          "file": "packages/docs/docs/utilities/vpcutil/_category_.json",
+          "hash": "18389113580196921846"
+        },
+        {
+          "file": "packages/docs/docs/utilities/vpcutil/getvpc.md",
+          "hash": "13922927325417170467"
+        },
+        {
+          "file": "packages/docs/docusaurus.config.js",
+          "hash": "8823763612821557869"
+        },
+        {
+          "file": "packages/docs/package.json",
+          "hash": "7626280308158249504",
+          "deps": [
+            "npm:@docusaurus/module-type-aliases",
+            "npm:@tsconfig/docusaurus",
+            "npm:@docusaurus/core",
+            "npm:@docusaurus/preset-classic",
+            "npm:@mdx-js/react",
+            "npm:clsx",
+            "npm:prism-react-renderer",
+            "npm:react",
+            "npm:react-dom"
+          ]
+        },
+        {
+          "file": "packages/docs/sidebars.js",
+          "hash": "4280608642132476175"
+        },
+        {
+          "file": "packages/docs/src/components/HomepageFeatures/index.tsx",
+          "hash": "7982795623412766705"
+        },
+        {
+          "file": "packages/docs/src/components/HomepageFeatures/styles.module.css",
+          "hash": "14149773169115351739"
+        },
+        {
+          "file": "packages/docs/src/css/custom.css",
+          "hash": "11107132179284871701"
+        },
+        {
+          "file": "packages/docs/src/pages/index.module.css",
+          "hash": "2272732276868299116"
+        },
+        {
+          "file": "packages/docs/src/pages/index.tsx",
+          "hash": "11818009926927349014"
+        },
+        {
+          "file": "packages/docs/src/pages/markdown-page.md",
+          "hash": "2637912770613796076"
+        },
+        {
+          "file": "packages/docs/static/.nojekyll",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "packages/docs/static/img/congrats.jpg",
+          "hash": "16368960915530773890"
+        },
+        {
+          "file": "packages/docs/static/img/docusaurus.png",
+          "hash": "11805897491343913808"
+        },
+        {
+          "file": "packages/docs/static/img/favicon.ico",
+          "hash": "4623368082387882924"
+        },
+        {
+          "file": "packages/docs/static/img/logo.png",
+          "hash": "10875126795363379607"
+        },
+        {
+          "file": "packages/docs/static/img/readme-logo.png",
+          "hash": "1758247724602266740"
+        },
+        {
+          "file": "packages/docs/static/img/undraw_docusaurus_mountain.svg",
+          "hash": "14081778507541877421"
+        },
+        {
+          "file": "packages/docs/static/img/undraw_docusaurus_react.svg",
+          "hash": "17162343818337932230"
+        },
+        {
+          "file": "packages/docs/static/img/undraw_docusaurus_tree.svg",
+          "hash": "12684630426846910715"
+        },
+        {
+          "file": "packages/docs/tsconfig.json",
+          "hash": "12018425124169143138"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "9559780293798020169"
+      },
+      {
+        "file": ".github/CODEOWNERS",
+        "hash": "2875004558308543578"
+      },
+      {
+        "file": ".github/ISSUE_TEMPLATE/bug_report.md",
+        "hash": "10829787083444313653"
+      },
+      {
+        "file": ".github/ISSUE_TEMPLATE/config.yml",
+        "hash": "17858606678031151155"
+      },
+      {
+        "file": ".github/PULL_REQUEST_TEMPLATE.md",
+        "hash": "5643003606794760670"
+      },
+      {
+        "file": ".github/config.yml",
+        "hash": "9417151154399969901"
+      },
+      {
+        "file": ".github/dependabot.yml",
+        "hash": "7101418331943651730"
+      },
+      {
+        "file": ".github/semantic.yml",
+        "hash": "1918490281112550347"
+      },
+      {
+        "file": ".github/workflows/merge_main.yaml",
+        "hash": "5238812204275965563"
+      },
+      {
+        "file": ".github/workflows/pull_request.yaml",
+        "hash": "5930754644931775315"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "5143470442233747689"
+      },
+      {
+        "file": ".husky/commit-msg",
+        "hash": "9081086559614441883"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "17733650430415207254"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".yarnrc.yml",
+        "hash": "9773565372686775399"
+      },
+      {
+        "file": "CONTRIBUTING.md",
+        "hash": "11151841146401458270"
+      },
+      {
+        "file": "LICENSE.md",
+        "hash": "15824876955172905412"
+      },
+      {
+        "file": "README.md",
+        "hash": "2293984727697874978"
+      },
+      {
+        "file": "commitlint.config.js",
+        "hash": "13840799604877199437"
+      },
+      {
+        "file": "package.json",
+        "hash": "2058158181572562256"
+      },
+      {
+        "file": "yarn.lock",
+        "hash": "6988352722818325085"
+      }
+    ]
+  }
+}
