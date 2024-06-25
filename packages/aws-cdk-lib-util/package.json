@@ -43,7 +43,7 @@
     "@semantic-release/github": "^10.0.6",
     "@types/jest": "29.5.12",
     "@types/node": "^20.14.7",
-    "@typescript-eslint/eslint-plugin": "~5.18.0",
+    "@typescript-eslint/eslint-plugin": "~7.14.1",
     "@typescript-eslint/parser": "~5.37.0",
     "aws-cdk-lib": "^2.147.0",
     "constructs": "^10.1.100",
